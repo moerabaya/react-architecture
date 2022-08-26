@@ -15,7 +15,7 @@ const Counter = () => {
 	return (
 		<div className="content">
 			<div className='wrapper'>
-				<h1>State Management Example</h1>
+				<h1>Context: State Management Example</h1>
 				<CounterButton numberOfClicks={numberOfClicks} increment={increment} />
 			</div>
 		</div>
