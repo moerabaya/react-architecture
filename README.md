@@ -6,6 +6,7 @@ How an application handles the data needs of it’s components, with regards to 
 - Context API: Builtin within react, It's "Small" sized state management
   - Example [/src/state-management/ContextApi/index.js](/src/state-management/ContextApi/index.js)
 - Recoil: A state management library design for "Medium" sized applications. Deep dive into Recoil: https://www.youtube.com/watch?v=_ISAA_Jt9kI
-  - Example:
+  - Example: [/src/state-management/Recoil/index.js](/src/state-management/ContextApi/index.js)
+  - Recoid has two main concepts: Atoms and Selectors, Atoms are individual values that is stored at Recoil state.
 - Redux
 - MobX

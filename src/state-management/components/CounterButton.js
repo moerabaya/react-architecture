@@ -1,9 +1,7 @@
 
-import { useContext, useState } from 'react';
-import CounterContext from './CounterContext';
+import { useState } from 'react';
 
-const CounterButton = () => {
-	const {numberOfClicks, increment} = useContext(CounterContext);
+const CounterButton = ({numberOfClicks, increment}) => {
 	const [incrementBy, setIncrementBy] = useState(1);
 
 	return (

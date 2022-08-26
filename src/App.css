@@ -11,17 +11,23 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background: white;
+  background-color: #fafafa;
 }
-nav ul {
+nav > ul {
   margin: 0 auto;
   padding: 0 20px;
   max-width: 900px;
 }
 
-nav ul li {
+nav > ul > li {
   display: inline-block;
   margin: 0 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+nav > ul > li:hover .sub-menu {
+  display: block;
 }
 
 nav ul li a {
@@ -31,8 +37,23 @@ nav ul li a {
   text-decoration: none;
 }
 
+.sub-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  display: none;
+}
+
+.sub-menu li {
+  display: block;
+}
+
 nav ul li a:hover {
-  text-decoration: underline;
+  background: #f1f1f1;
 }
 
 .content {

@@ -7,6 +7,7 @@ import {
 import ContextApi from "./state-management/ContextApi";
 import './App.css';
 import Home from "./pages/Home";
+import RecoilCounter from "./state-management/Recoil";
 
 function App() {
   return (
@@ -18,7 +19,15 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/state-management/context-api">State Management</Link>
+              <a>State Management</a>
+              <ul className="sub-menu">
+                <li>
+                  <Link to="/state-management/context-api">ContextApi</Link>
+                </li>
+                <li>
+                  <Link to="/state-management/recoil">Recoil</Link>
+                </li>
+              </ul>
             </li>
           </ul>
         </nav>
@@ -28,6 +37,7 @@ function App() {
         <main className="layout">
           <Routes>
             <Route path="/state-management/context-api" element={<ContextApi />} />
+            <Route path="/state-management/recoil" element={<RecoilCounter />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </main>
