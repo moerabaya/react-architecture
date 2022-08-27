@@ -9,6 +9,7 @@ import './App.css';
 import Home from "./pages/Home";
 import RecoilCounter from "./state-management/Recoil";
 import ReduxCounter from "./state-management/Redux";
+import MobXCounter from "./state-management/MobX";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
                 <li>
                   <Link to="/state-management/redux">Redux/Toolkit</Link>
                 </li>
+                <li>
+                  <Link to="/state-management/mobx">MobX</Link>
+                </li>
               </ul>
             </li>
           </ul>
@@ -43,6 +47,7 @@ function App() {
             <Route path="/state-management/context-api" element={<ContextApi />} />
             <Route path="/state-management/recoil" element={<RecoilCounter />} />
             <Route path="/state-management/redux" element={<ReduxCounter />} />
+            <Route path="/state-management/mobx" element={<MobXCounter />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </main>
