@@ -16,5 +16,5 @@ How an application handles the data needs of it’s components, with regards to 
     - store: is an immutable object tree which holds the application's state, it acts as the single source of truth. Redux can have only one store.
     - selectors: is a function that accepts Redux state as an argument and returns data that is derived from that state.
 - MobX: Another popular state managment library for "Large" sized applications, yet very straightforward and optimal compared to Redux. Deep dive into MobX https://mobx.js.org/README.html
-  - Example: [/src/state-managemnt/MobX/index.js](/src/state-managemnt/MobX/index.js)
+  - Example: [/src/state-managemnt/MobX/index.js](/src/state-management/MobX/index.js)
   - MobX follows a more object-oriented approach, where state is saved in a class and can be updated through action aka methods.
