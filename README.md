@@ -18,3 +18,8 @@ How an application handles the data needs of it’s components, with regards to 
 - MobX: Another popular state managment library for "Large" sized applications, yet very straightforward and optimal compared to Redux. Deep dive into MobX https://mobx.js.org/README.html
   - Example: [/src/state-managemnt/MobX/index.js](/src/state-management/MobX/index.js)
   - MobX follows a more object-oriented approach, where state is saved in a class and can be updated through action aka methods.
+
+# Server Side Rendering (SSR)
+is an application's ability to convert HTML files on the server into a fully rendered HTML page for the client.
+### Tools used
+- Styled-components: Lets us write actual CSS in JavaScript.
