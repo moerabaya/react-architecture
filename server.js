@@ -26,25 +26,44 @@ app.get("/api/articles", (req, res) => {
 	res.json(loadedArticles);
 })
 
-app.get("/*", (req, res) => {
+app.get("/*", async (req, res) => {
 	const sheet = new ServerStyleSheet();
-	const context = {}
-	const reactApp = renderToString(
+	const context = {
+		_isServerSide: true,
+		_requests: [],
+		_data: {}
+	}
+
+	
+
+	renderToString(
 		sheet.collectStyles(
-			<InitialDataContext.Provider>
-				<StaticRouter location={req.url} context={context}>
+			<InitialDataContext.Provider value={context}>
+				<StaticRouter location={req.url}>
 					<App />
 				</StaticRouter>
 			</InitialDataContext.Provider>
 		)
 	);
+
+	await Promise.all(context._requests);
+	context._isServerSide = false;
+
+	const reactApp = renderToString(
+		<InitialDataContext.Provider value={context}>
+			<StaticRouter location={req.url}>
+				<App />
+			</StaticRouter>
+		</InitialDataContext.Provider>
+	);
+
 	const templateFile = path.resolve("./build/index.html");
 	fs.readFile(templateFile, 'utf-8', (err, data) => {
 		if(err){
 			return res.status(500).send(err);
 		}
 		return res.send(
-			data.replace('<div id="root"></div>', `<link rel="stylesheet" type="text/css" href="/build/static/main.e6c13ad2.css" /><script>window.preloadedArticles = ${JSON.stringify(articles)};</script><div id="root">${reactApp}</div>`)
+			data.replace('<div id="root"></div>', `<link rel="stylesheet" type="text/css" href="/build/static/main.e6c13ad2.css" /><script>window.preloadedArticles = ${JSON.stringify(context)};</script><div id="root">${reactApp}</div>`)
 				.replace('{{ styles }}', sheet.getStyleTags())
 		)
 	});
