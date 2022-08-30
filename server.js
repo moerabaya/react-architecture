@@ -6,6 +6,7 @@ import { StaticRouter } from "react-router-dom/server";
 import path from "path";
 import fs from "fs";
 import App from "./src/App";
+import { InitialDataContext } from './src/server-side-render/dataContext';
 
 const app = express();
 
@@ -29,11 +30,13 @@ app.get("/*", (req, res) => {
 	const sheet = new ServerStyleSheet();
 	const context = {}
 	const reactApp = renderToString(
-		// sheet.collectStyles(
-			<StaticRouter location={req.url} context={context}>
-				<App />
-			</StaticRouter>
-		// )
+		sheet.collectStyles(
+			<InitialDataContext.Provider>
+				<StaticRouter location={req.url} context={context}>
+					<App />
+				</StaticRouter>
+			</InitialDataContext.Provider>
+		)
 	);
 	const templateFile = path.resolve("./build/index.html");
 	fs.readFile(templateFile, 'utf-8', (err, data) => {

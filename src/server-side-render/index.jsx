@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const Articles = () => {
-	const [articles, setArticles] = useState(window && window.preloadedArticles);
+	const [articles, setArticles] = useState(window && window.preloadedArticles || []);
 
 	useEffect(()=> {
 		if(window && !window.preloadedArticles)
