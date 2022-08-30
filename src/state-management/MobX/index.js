@@ -1,4 +1,5 @@
 
+import React from 'react';
 import CounterButton from '../components/CounterButton';
 import {default as CounterState} from "./Counter";
 import { observer } from 'mobx-react-lite';
