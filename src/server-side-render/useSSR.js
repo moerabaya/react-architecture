@@ -3,7 +3,7 @@ import { InitialDataContext } from "./dataContext";
 
 const useSSR = (resourceName, loadFunc) => {
 	const context = useContext(InitialDataContext);
-	const [data, setData] = useState(context._data[resourceName] || []);
+	const [data, setData] = useState(context._data[resourceName]);
 
 	if(context._isServerSide) {
 		context._requests.push(

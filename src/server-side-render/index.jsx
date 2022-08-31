@@ -10,7 +10,7 @@ const Articles = () => {
 		<article>
 			<h1>Articles</h1>
 			<ul>
-				{articles.map(item => <li key={item.title}>
+				{articles && articles.map(item => <li key={item.title}>
 					<h3>{item.title}</h3>
 					<p>by {item.author}</p>
 				</li>)}
