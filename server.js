@@ -1,3 +1,4 @@
+import "isomorphic-fetch";
 import express from 'express';
 import React from "react";
 import { ServerStyleSheet } from 'styled-components';
@@ -63,7 +64,7 @@ app.get("/*", async (req, res) => {
 			return res.status(500).send(err);
 		}
 		return res.send(
-			data.replace('<div id="root"></div>', `<link rel="stylesheet" type="text/css" href="/build/static/main.e6c13ad2.css" /><script>window.preloadedArticles = ${JSON.stringify(context)};</script><div id="root">${reactApp}</div>`)
+			data.replace('<div id="root"></div>', `<link rel="stylesheet" type="text/css" href="/build/static/main.e6c13ad2.css" /><script>window.preloadedData = ${JSON.stringify(context)};</script><div id="root">${reactApp}</div>`)
 				.replace('{{ styles }}', sheet.getStyleTags())
 		)
 	});
