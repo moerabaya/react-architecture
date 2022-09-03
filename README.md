@@ -23,3 +23,4 @@ How an application handles the data needs of it’s components, with regards to 
 is an application's ability to convert HTML files on the server into a fully rendered HTML page for the client.
 ### Tools used
 - Styled-components: Lets us write actual CSS in JavaScript.
+- Custom hook: To retreive data from server without client requests.
