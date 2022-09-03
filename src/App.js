@@ -5,12 +5,12 @@ import {
 } from "react-router-dom";
 import ContextApi from "./state-management/ContextApi";
 import './App.css';
-import React from "react";
-import Home from "./pages/Home";
-import RecoilCounter from "./state-management/Recoil";
-import ReduxCounter from "./state-management/Redux";
-import MobXCounter from "./state-management/MobX";
-import Articles from "./server-side-render";
+import React, { lazy, Suspense } from "react";
+const Home = lazy(() => import("./pages/Home"));
+const RecoilCounter = lazy(() => import("./state-management/Recoil"));
+const ReduxCounter = lazy(() => import("./state-management/Redux"));
+const MobXCounter = lazy(() => import("./state-management/MobX"));
+const Articles = lazy(() => import("./server-side-render"));
 // import styled from "styled-components";
 
 // const BigGreenHeading = styled.h1`
@@ -57,14 +57,16 @@ function App() {
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
       <main className="layout">
-        <Routes>
-          <Route path="/state-management/context-api" element={<ContextApi />} />
-          <Route path="/state-management/recoil" element={<RecoilCounter />} />
-          <Route path="/state-management/redux" element={<ReduxCounter />} />
-          <Route path="/state-management/mobx" element={<MobXCounter />} />
-          <Route path="/server-side-rendering/articles" element={<Articles />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Routes>
+            <Route path="/state-management/context-api" element={<ContextApi />} />
+            <Route path="/state-management/recoil" element={<RecoilCounter />} />
+            <Route path="/state-management/redux" element={<ReduxCounter />} />
+            <Route path="/state-management/mobx" element={<MobXCounter />} />
+            <Route path="/server-side-rendering/articles" element={<Articles />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Suspense>
       </main>
     </div>
   );

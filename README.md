@@ -24,3 +24,6 @@ is an application's ability to convert HTML files on the server into a fully ren
 ### Tools used
 - Styled-components: Lets us write actual CSS in JavaScript.
 - Custom hook: To retreive data from server without client requests.
+
+# Code splitting
+Code splitting is the splitting of code into various bundles or components which can then be loaded on demand or in parallel. As an application grows in complexity or is maintained, CSS and JavaScripts files or bundles grow in byte size, especially as the number and size of included third-party libraries increases.
