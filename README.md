@@ -33,3 +33,32 @@ are React components that catch JavaScript errors anywhere in their child compon
 
 ### [react-error-boundary](https://github.com/bvaughn/react-error-boundary)
 Exposes the last Error Boundary component anyone needs to write and gives you all the tools you need to declaratively handle runtime errors in your React apps without limitation regular Error Boundary class.
+
+# File Structure
+
+### Grouping by features or routes
+
+One common way to structure projects is to locate CSS, JS, and tests together inside folders grouped by feature or route.
+```
+common/
+  ...
+feed/
+  ...
+profile/
+  ...
+authentication/
+  ...
+```
+The definition of a “feature” is not universal, and it is up to you to choose the granularity. If you can’t come up with a list of top-level folders, you can ask the users of your product what major parts it consists of, and use their mental model as a blueprint.
+
+### Grouping by file type
+Another popular way to structure projects is to group similar files together, for example:
+```
+api/
+  ...
+components/
+  ...
+```
+Some people also prefer to go further, and separate components into different folders depending on their role in the application.
+
+For example, Atomic Design is a design methodology built on this principle. Remember that it’s often more productive to treat such methodologies as helpful examples rather than strict rules to follow.
