@@ -6,6 +6,7 @@ import {
 import ContextApi from "./state-management/ContextApi";
 import './App.css';
 import React, { lazy, Suspense } from "react";
+import ErrorBoundary from "./components/ErrorBoundary";
 const Home = lazy(() => import("./pages/Home"));
 const RecoilCounter = lazy(() => import("./state-management/Recoil"));
 const ReduxCounter = lazy(() => import("./state-management/Redux"));
@@ -57,16 +58,18 @@ function App() {
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
       <main className="layout">
-        <Suspense fallback={<p>Loading...</p>}>
-          <Routes>
-            <Route path="/state-management/context-api" element={<ContextApi />} />
-            <Route path="/state-management/recoil" element={<RecoilCounter />} />
-            <Route path="/state-management/redux" element={<ReduxCounter />} />
-            <Route path="/state-management/mobx" element={<MobXCounter />} />
-            <Route path="/server-side-rendering/articles" element={<Articles />} />
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<p>Loading...</p>}>
+            <Routes>
+              <Route path="/state-management/context-api" element={<ContextApi />} />
+              <Route path="/state-management/recoil" element={<RecoilCounter />} />
+              <Route path="/state-management/redux" element={<ReduxCounter />} />
+              <Route path="/state-management/mobx" element={<MobXCounter />} />
+              <Route path="/server-side-rendering/articles" element={<Articles />} />
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </main>
     </div>
   );
