@@ -6,7 +6,8 @@ import {
 import ContextApi from "./state-management/ContextApi";
 import './App.css';
 import React, { lazy, Suspense } from "react";
-import ErrorBoundary from "./components/ErrorBoundary";
+import { ErrorBoundary } from "react-error-boundary";
+
 const Home = lazy(() => import("./pages/Home"));
 const RecoilCounter = lazy(() => import("./state-management/Recoil"));
 const ReduxCounter = lazy(() => import("./state-management/Redux"));
@@ -19,7 +20,12 @@ const Articles = lazy(() => import("./server-side-render"));
 // 	font-size: 96px;
 // `;
 
+const Fallback = () => <h1>Something went wrong!</h1>;
+
 function App() {
+
+  const handleError = (error, errorInfo) => console.warn("Error: ", error, errorInfo);
+
   return (
     <div>
       <nav>
@@ -58,7 +64,7 @@ function App() {
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
       <main className="layout">
-        <ErrorBoundary>
+        <ErrorBoundary FallbackComponent={Fallback} onError={handleError}>
           <Suspense fallback={<p>Loading...</p>}>
             <Routes>
               <Route path="/state-management/context-api" element={<ContextApi />} />

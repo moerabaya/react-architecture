@@ -11,7 +11,7 @@ const ContextApi = () => (
 )
 const Counter = () => {
 	const {numberOfClicks, increment} = useContext(CounterContext);
-	throw new Error("not loading");
+	
 	return (
 		<div className="content">
 			<div className='wrapper'>

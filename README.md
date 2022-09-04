@@ -30,3 +30,6 @@ Code splitting is the splitting of code into various bundles or components which
 
 # Error boundaries
 are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+
+### [react-error-boundary](https://github.com/bvaughn/react-error-boundary)
+Exposes the last Error Boundary component anyone needs to write and gives you all the tools you need to declaratively handle runtime errors in your React apps without limitation regular Error Boundary class.
