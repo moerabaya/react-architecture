@@ -62,3 +62,21 @@ components/
 Some people also prefer to go further, and separate components into different folders depending on their role in the application.
 
 For example, Atomic Design is a design methodology built on this principle. Remember that it’s often more productive to treat such methodologies as helpful examples rather than strict rules to follow.
+
+# Monoliths, multi-repos, and monorepos
+## Monoliths
+All the code for the project in a single codebase, which generally has to be modified and deployed at once.
+- Simple
+- Usually the default for new projects.
+- Can become unmanageable if you're not careful (and often even if you are).
+- Ideal for small teams working on short-term projects.
+## Multi-repos
+The project's code is separated into multiple codebases, each of which can usually be worked on and deployed independently.
+- Add some overhead for setup.
+- Make the development process more complex.
+- Allow independent versioning of different parts.
+- Generally better for companies with fairly isolated teams.
+## Monorepos
+Monorepos are a mix of monoliths and multi-repos. They keep all the code in the same codebase but organize it so each piece is largely independent.
+- Include many of the same benefits as multi-repos, except that code is technically kept in the same repo.
+- Used by many large tech companies, including Google, Facebook, Twitter, etc.
