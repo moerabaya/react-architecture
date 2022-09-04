@@ -27,3 +27,6 @@ is an application's ability to convert HTML files on the server into a fully ren
 
 # Code splitting
 Code splitting is the splitting of code into various bundles or components which can then be loaded on demand or in parallel. As an application grows in complexity or is maintained, CSS and JavaScripts files or bundles grow in byte size, especially as the number and size of included third-party libraries increases.
+
+# Error boundaries
+are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
