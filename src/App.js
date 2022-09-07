@@ -13,6 +13,7 @@ const RecoilCounter = lazy(() => import("./state-management/Recoil"));
 const ReduxCounter = lazy(() => import("./state-management/Redux"));
 const MobXCounter = lazy(() => import("./state-management/MobX"));
 const Articles = lazy(() => import("./server-side-render"));
+const Tests = lazy(() => import("./testing/testing"));
 // import styled from "styled-components";
 
 // const BigGreenHeading = styled.h1`
@@ -48,6 +49,9 @@ function App() {
               <li>
                 <Link to="/state-management/mobx">MobX</Link>
               </li>
+              <li>
+                <Link to="/tests">Tests</Link>
+              </li>
             </ul>
           </li>
           <li>
@@ -72,6 +76,7 @@ function App() {
               <Route path="/state-management/redux" element={<ReduxCounter />} />
               <Route path="/state-management/mobx" element={<MobXCounter />} />
               <Route path="/server-side-rendering/articles" element={<Articles />} />
+              <Route path="/tests" element={<Tests />} />
               <Route path="/" element={<Home />} />
             </Routes>
           </Suspense>
