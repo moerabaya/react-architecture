@@ -15,6 +15,7 @@ How an application handles the data needs of it’s components, with regards to 
     - reducers: pure functions that take an action and the previous state of the application and returns the new state.
     - store: is an immutable object tree which holds the application's state, it acts as the single source of truth. Redux can have only one store.
     - selectors: is a function that accepts Redux state as an argument and returns data that is derived from that state.
+    - useSlice: is a function that accepts a name, initial state and reduecr functions and automaticlly create action creator and action types that correspond with to the reducers and state. Internally, it uses createAction and createReducer. 
 - MobX: Another popular state managment library for "Large" sized applications, yet very straightforward and optimal compared to Redux. Deep dive into MobX https://mobx.js.org/README.html
   - Example: [/src/state-managemnt/MobX/index.js](/src/state-management/MobX/index.js)
   - MobX follows a more object-oriented approach, where state is saved in a class and can be updated through action aka methods.
