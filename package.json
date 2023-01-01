@@ -55,6 +55,7 @@
     "@redux-devtools/core": "^3.13.1",
     "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-inline-svg": "^1.2.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "react-test-renderer": "^18.2.0"
   }
 }
