@@ -7,5 +7,5 @@ test("App snapshot test", () => {
   const component = TestRenderer.create(<Tests />);
   const tree = component.toJSON();
 
-  expect(true).toMatchSnapshot();
+  expect(tree).toMatchSnapshot();
 });
