@@ -16,7 +16,7 @@ export default class Tests extends Component {
           <nav className="blue lighten-2">
             <div className="nav-wrapper">
               <a href="/" className="brand-logo center">
-                Course List
+                Courses
               </a>
             </div>
           </nav>
