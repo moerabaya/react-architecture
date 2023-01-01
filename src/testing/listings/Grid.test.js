@@ -19,3 +19,28 @@ test('Title is "Building an App with ReactJS and MeteorJS"', () => {
 test("There is a JS in this title", () => {
   expect(dataTest).toMatch(/JS/);
 });
+
+test("There is a React in this title", () => {
+  expect(dataTest).toContain("React");
+});
+
+// Arrays
+const data2 = ["React Native", "React"];
+
+test("The list of courses contains React Native and React", () => {
+  expect(["React Native", "React", "MeteorJS"]).toEqual(
+    expect.arrayContaining(data2)
+  );
+});
+
+// Objects
+test("The first course to have a property title", () => {
+  expect(data[0]).toHaveProperty("category");
+  expect(data[0]).toHaveProperty("title");
+  expect(data[0]).toHaveProperty("id");
+  expect(data[0]).toHaveProperty("release_date");
+});
+
+test("The first course to have a property views and value of 31,266", () => {
+  expect(data[0]).toHaveProperty("views", "31,266");
+});
