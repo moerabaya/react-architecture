@@ -1,10 +1,6 @@
-import {
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import ContextApi from "./state-management/ContextApi";
-import './App.css';
+import "./App.css";
 import React, { lazy, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -13,7 +9,7 @@ const RecoilCounter = lazy(() => import("./state-management/Recoil"));
 const ReduxCounter = lazy(() => import("./state-management/Redux"));
 const MobXCounter = lazy(() => import("./state-management/MobX"));
 const Articles = lazy(() => import("./server-side-render"));
-const Tests = lazy(() => import("./testing/testing"));
+const Tests = lazy(() => import("./testing"));
 // import styled from "styled-components";
 
 // const BigGreenHeading = styled.h1`
@@ -24,8 +20,8 @@ const Tests = lazy(() => import("./testing/testing"));
 const Fallback = () => <h1>Something went wrong!</h1>;
 
 function App() {
-
-  const handleError = (error, errorInfo) => console.warn("Error: ", error, errorInfo);
+  const handleError = (error, errorInfo) =>
+    console.warn("Error: ", error, errorInfo);
 
   return (
     <div>
@@ -71,11 +67,23 @@ function App() {
         <ErrorBoundary FallbackComponent={Fallback} onError={handleError}>
           <Suspense fallback={<p>Loading...</p>}>
             <Routes>
-              <Route path="/state-management/context-api" element={<ContextApi />} />
-              <Route path="/state-management/recoil" element={<RecoilCounter />} />
-              <Route path="/state-management/redux" element={<ReduxCounter />} />
+              <Route
+                path="/state-management/context-api"
+                element={<ContextApi />}
+              />
+              <Route
+                path="/state-management/recoil"
+                element={<RecoilCounter />}
+              />
+              <Route
+                path="/state-management/redux"
+                element={<ReduxCounter />}
+              />
               <Route path="/state-management/mobx" element={<MobXCounter />} />
-              <Route path="/server-side-rendering/articles" element={<Articles />} />
+              <Route
+                path="/server-side-rendering/articles"
+                element={<Articles />}
+              />
               <Route path="/tests" element={<Tests />} />
               <Route path="/" element={<Home />} />
             </Routes>
